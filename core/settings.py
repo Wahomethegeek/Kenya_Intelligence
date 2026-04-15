@@ -94,9 +94,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #    }
 #}
 
+#DATABASES = {
+ #   'default': dj_database_url.config(
+  #      default=f"postgresql://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}:{os.getenv('DATABASE_PORT')}/{os.getenv('DATABASE_NAME')}",
+   #     conn_max_age=600
+   # )
+#}
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=f"postgresql://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}:{os.getenv('DATABASE_PORT')}/{os.getenv('DATABASE_NAME')}",
+        default=os.getenv('DATABASE_URL'),
         conn_max_age=600
     )
 }
